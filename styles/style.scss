@@ -1,0 +1,160 @@
+// vars
+
+//funcs
+//mixins
+@mixin Shadow {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+@mixin boxShadow {
+  @include Shadow();
+  border-radius: 5px;
+  padding: 1rem;
+}
+@mixin removeInputBorders {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+@mixin flexOneline {
+  display: flex;
+  align-items: center;
+}
+///////*//////
+* {
+  font-size: 1rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  padding: 1rem;
+  .search-bar {
+    form {
+      @include boxShadow();
+      @include flexOneline();
+      padding: 1rem;
+      input[type="search"] {
+        flex: 1;
+        padding: 0 0.5rem;
+        @include removeInputBorders();
+      }
+    }
+  }
+  .intro {
+    @include boxShadow();
+    margin: 2rem 0;
+    padding: 2rem;
+    padding-left: 0;
+    border-radius: 8px;
+    background: rgb(109, 65, 250);
+    background: linear-gradient(
+      56deg,
+      rgba(109, 65, 250, 1) 0%,
+      rgba(143, 110, 249, 1) 100%
+    );
+    @include flexOneline();
+    justify-content: space-between;
+
+    .fa-book {
+      padding: 1rem 0;
+      margin: 0 1.5rem;
+      color: white;
+      font-size: 4rem;
+    }
+    h1 {
+      font-size: 1.9rem;
+      color: white;
+    }
+  }
+  .cats {
+    @include boxShadow();
+    box-shadow: none;
+    @include flexOneline();
+    justify-content: space-between;
+    margin: 2rem 0;
+    padding: 0;
+    .cat {
+      @include flexOneline();
+      flex-direction: column;
+      text-align: center;
+      @include boxShadow();
+      img,
+      li {
+        font-size: 2.5rem;
+      }
+      p {
+        margin: 0.5rem 0;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      }
+    }
+  }
+
+  .tasks {
+    .task {
+      @include boxShadow();
+      @include flexOneline();
+      padding: 1rem;
+      margin: 1rem 0;
+      transition-duration: 0.5s;
+      label {
+        user-select: none;
+        cursor: pointer;
+        padding: 0 0.25rem;
+        flex: 1;
+      }
+      input[type="checkbox"] {
+        align-self: flex-start;
+      }
+      &:hover {
+        background: rgb(250, 170, 65);
+        color: white;
+      }
+    }
+  }
+
+  .new-task {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin: 1rem;
+    background: rgb(109, 65, 250);
+    background: linear-gradient(
+      56deg,
+      rgba(109, 65, 250, 1) 0%,
+      rgba(143, 110, 249, 1) 100%
+    );
+    border-radius: 50%;
+    padding: 1rem;
+    color: white;
+    cursor: pointer;
+    font-size: 0rem;
+    li {
+      font-size: 1.5rem;
+    }
+    transition: 0.5s;
+    border-color: rgba(143, 110, 249, 1);
+
+    &:hover {
+      background: white;
+      color: black;
+    }
+  }
+}
+
+@media (min-width: 750px) {
+  main {
+    width: 50%;
+    margin: 1rem auto;
+    @include boxShadow();
+    border-radius: 8px;
+    .new-task {
+      margin-left: 26.5%;
+    }
+  }
+}
